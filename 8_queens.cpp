@@ -6,7 +6,7 @@ using namespace std;
 
 #define N 8
 
-bool check_line(vector<pair<int, int>> map) {
+bool check_line(vector<pair<int, int> > map) {
   pair<int, int> current_pair = map.back();
   for (int i = 0; i < (map.size() - 1); i++) {
     if (map[i].first == current_pair.first || map[i].second == current_pair.second || (abs(map[i].first - current_pair.first) == abs(map[i].second - current_pair.second))) {
@@ -16,7 +16,7 @@ bool check_line(vector<pair<int, int>> map) {
   return true;
 }
 
-void print_map(vector<pair<int, int>> map) {
+void print_map(vector<pair<int, int> > map) {
   static int count = 1;
   string main_map[N][N];
   for (int i = 0; i < N; i++) {
@@ -39,13 +39,13 @@ void print_map(vector<pair<int, int>> map) {
   cout << endl << endl;
 }
 
-void select_best_place (vector<pair<int, int>> &map) {
+void select_best_place (vector<pair<int, int> > &map) {
   if (map.size() == N) {
     print_map(map);
     return;
   }
   for (int i = 0; i < N; i++) {
-    map.push_back(pair(map.size(), i));
+    map.push_back(pair<int, int>(map.size(), i));
     if (check_line(map)) {
       select_best_place(map);
     }
@@ -55,7 +55,8 @@ void select_best_place (vector<pair<int, int>> &map) {
 }
 
 int main(int argc, char const *argv[]) {
-  vector<pair<int, int>> map;
+  vector<pair<int, int> > map;
   select_best_place(map);
   return 0;
 }
+
