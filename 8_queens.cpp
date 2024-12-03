@@ -22,9 +22,9 @@ void print_map(vector<pair<int, int> > map) {
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < N; j++) {
       if (j == map[i].second) {
-        main_map[i][j] = to_string(map[i].second);
+        main_map[i][j] = to_string(map[i].second + 1);
       } else {
-        main_map[i][j] = 'O';
+        main_map[i][j] = '.';
       }
     }
   }
